@@ -1,0 +1,26 @@
+name: Deployment
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+     - uses: actions/checkout@v2
+    
+     # Runs a single command using the runners shell
+    - name: Install nodejs
+      uses: actions/setup-node@v2-beta
+      with:
+        node-version: 12
+    - name: Install Surge
+      run: npm install -g surge
+    - name: Run Surge
+      run: surge ./ bootcamp1.surge.sh --token ${{secrets.SURGE_TOKEN}}
+      
+      
+      
