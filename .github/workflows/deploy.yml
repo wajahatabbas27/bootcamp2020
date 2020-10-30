@@ -12,7 +12,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     
-     # Runs a single command using the runners shell
+     
     - name: Install NodeJS
       uses: actions/setup-node@v2-beta
       with:
